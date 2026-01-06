@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Trophy, 
-  Users, 
-  History, 
-  Camera, 
-  Mail, 
-  Menu, 
-  X, 
-  Calendar, 
-  MapPin, 
-  Instagram, 
+import {
+  Trophy,
+  Users,
+  History,
+  Camera,
+  Mail,
+  Menu,
+  X,
+  Calendar,
+  MapPin,
+  Instagram,
   Facebook,
   Shield,
   Star,
@@ -34,7 +34,7 @@ const TEAM_INFO = {
     textMain: "text-white", // CAMBIO: Texto principal a blanco para fondo oscuro
     textLight: "text-gray-300"
   },
-  logoUrl: "/api/placeholder/150/150" 
+  logoUrl: "/api/placeholder/150/150"
 };
 
 const PALMARES = [
@@ -98,9 +98,9 @@ const PlayerCard = ({ player }) => (
     <div className="flex flex-col md:flex-row h-full">
       {/* Imagen */}
       <div className="md:w-2/5 w-full relative overflow-hidden h-64 md:h-auto bg-[#0E0E0E]">
-        <img 
-          src={player.image} 
-          alt={player.name} 
+        <img
+          src={player.image}
+          alt={player.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100"
         />
         {/* Número Overlay */}
@@ -109,7 +109,7 @@ const PlayerCard = ({ player }) => (
         </div>
         <div className={`absolute inset-0 bg-[#0E0E0E]/30 group-hover:bg-transparent transition-colors duration-300`}></div>
       </div>
-      
+
       {/* Info */}
       <div className="md:w-3/5 w-full p-6 flex flex-col justify-between bg-[#1A1A1A] relative">
         {/* Decoración de fondo */}
@@ -119,17 +119,17 @@ const PlayerCard = ({ player }) => (
 
         <div>
           <div className="flex justify-between items-start mb-1">
-             <span className={`text-xs font-bold tracking-widest uppercase ${TEAM_INFO.theme.accentDark} mb-1 block`}>
+            <span className={`text-xs font-bold tracking-widest uppercase ${TEAM_INFO.theme.accentDark} mb-1 block`}>
               {player.position}
             </span>
           </div>
           <h3 className={`text-2xl font-black uppercase leading-none mb-4 text-white`}>
             {player.name}
           </h3>
-          
+
           <div className="flex items-center gap-2 mb-4 text-sm font-medium text-gray-400 border-t border-[#333] pt-3">
-             <User size={14} className="text-[#ECB7CB]" />
-             <span>{player.profession}</span>
+            <User size={14} className="text-[#ECB7CB]" />
+            <span>{player.profession}</span>
           </div>
 
           <div className="relative pl-6">
@@ -149,7 +149,7 @@ const HistoricCard = ({ yearData }) => {
 
   return (
     <div className="bg-[#1A1A1A] mb-4 border border-[#333] group">
-      <button 
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full flex justify-between items-center p-6 transition-colors text-left group-hover:bg-[#222] ${isOpen ? 'bg-[#222]' : 'bg-[#1A1A1A]'}`}
       >
@@ -159,10 +159,10 @@ const HistoricCard = ({ yearData }) => {
           <span className="text-gray-400 font-medium hidden sm:block uppercase tracking-wide text-sm">{yearData.description}</span>
         </div>
         <div className={`p-2 rounded-full ${isOpen ? TEAM_INFO.theme.accentBg + ' text-[#0E0E0E]' : 'text-gray-400 bg-[#333]'}`}>
-           <ChevronRight className={`w-5 h-5 transform transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`} />
+          <ChevronRight className={`w-5 h-5 transform transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`} />
         </div>
       </button>
-      
+
       <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="p-6 bg-[#151515] border-t border-[#333]">
           <p className="sm:hidden text-gray-400 italic mb-4 text-sm">{yearData.description}</p>
@@ -202,7 +202,7 @@ export default function App() {
   };
 
   const NavLink = ({ to, label }) => (
-    <button 
+    <button
       onClick={() => scrollToSection(to)}
       className={`font-bold transition-all px-4 py-2 uppercase text-xs tracking-widest hover:text-[#ECB7CB] text-white`}
     >
@@ -212,7 +212,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0E0E0E] font-sans text-white">
-      
+
       {/* NAVBAR */}
       <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#0E0E0E]/95 backdrop-blur-md shadow-lg py-3 border-b border-[#333]' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
@@ -234,8 +234,8 @@ export default function App() {
             <NavLink to="fotos" label="Galería" />
             <NavLink to="palmares" label="Títulos" />
             <NavLink to="contacto" label="Contacto" />
-            
-            <button 
+
+            <button
               onClick={() => scrollToSection('contacto')}
               className={`ml-4 px-6 py-2 ${TEAM_INFO.theme.accentBg} text-[#0E0E0E] font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-[#0E0E0E] border border-transparent hover:border-[#0E0E0E] transition-all`}
             >
@@ -244,7 +244,7 @@ export default function App() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className={`md:hidden p-2 text-white`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -268,21 +268,21 @@ export default function App() {
       <header id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-[#0E0E0E]">
         {/* Background Image Overlay */}
         <div className="absolute inset-0 z-0 opacity-30">
-          <img 
-            src="/api/placeholder/1920/1080" 
-            alt="Fondo cancha" 
+          <img
+            src="/api/placeholder/1920/1080"
+            alt="Fondo cancha"
             className="w-full h-full object-cover grayscale"
           />
         </div>
-        
+
         {/* Gradient Overlay for aesthetic */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0E0E0E] via-[#0E0E0E]/80 to-[#0E0E0E]/50"></div>
 
         <div className="relative z-10 text-center px-4 flex flex-col items-center max-w-4xl">
           <div className="mb-6 animate-fade-in-up">
-             <div className="inline-block border-2 border-[#ECB7CB] p-1 rounded-full mb-6">
-                <div className="w-4 h-4 bg-[#ECB7CB] rounded-full animate-pulse"></div>
-             </div>
+            <div className="inline-block border-2 border-[#ECB7CB] p-1 rounded-full mb-6">
+              <div className="w-4 h-4 bg-[#ECB7CB] rounded-full animate-pulse"></div>
+            </div>
           </div>
           <h1 className="text-6xl md:text-9xl font-black text-white uppercase tracking-tighter mb-2 leading-none">
             {TEAM_INFO.name}
@@ -291,11 +291,11 @@ export default function App() {
           <p className="text-xl md:text-2xl text-gray-400 font-light max-w-2xl tracking-wide mb-10">
             Fútbol y Amistad. Estilo y Pasión. <span className="text-[#ECB7CB]">Desde 2018.</span>
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4">
-             <button onClick={() => scrollToSection('plantel2026')} className={`px-10 py-4 bg-transparent border border-[#ECB7CB] text-white font-bold uppercase tracking-widest hover:bg-[#ECB7CB] hover:text-[#0E0E0E] transition-all duration-300`}>
-               Ver Plantel 2026
-             </button>
+            <button onClick={() => scrollToSection('plantel2026')} className={`px-10 py-4 bg-transparent border border-[#ECB7CB] text-white font-bold uppercase tracking-widest hover:bg-[#ECB7CB] hover:text-[#0E0E0E] transition-all duration-300`}>
+              Ver Plantel 2026
+            </button>
           </div>
         </div>
       </header>
@@ -325,9 +325,9 @@ export default function App() {
             </div>
             <div className="relative">
               <div className="absolute -inset-4 border-2 border-[#262224] opacity-50 transform translate-x-4 translate-y-4"></div>
-              <img 
-                src="/api/placeholder/600/800" 
-                alt="Foto fundacional" 
+              <img
+                src="/api/placeholder/600/800"
+                alt="Foto fundacional"
                 className="relative w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl brightness-75 hover:brightness-100"
               />
               <div className={`absolute bottom-0 right-0 bg-[#ECB7CB] text-[#0E0E0E] px-8 py-4`}>
@@ -353,7 +353,7 @@ export default function App() {
               Una combinación letal de técnica, potencia y amistad. Conoce a los protagonistas de esta nueva campaña.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {JUGADORES_2026.map((player) => (
               <PlayerCard key={player.id} player={player} />
@@ -366,12 +366,12 @@ export default function App() {
       <section id="historicos" className="py-24 bg-[#0E0E0E]">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-             <div className="text-center mb-16">
-                <SectionTitle icon={Calendar}>Legado Histórico</SectionTitle>
-             </div>
-             {PLANTELES_HISTORICOS.map((yearData, idx) => (
-               <HistoricCard key={idx} yearData={yearData} />
-             ))}
+            <div className="text-center mb-16">
+              <SectionTitle icon={Calendar}>Legado Histórico</SectionTitle>
+            </div>
+            {PLANTELES_HISTORICOS.map((yearData, idx) => (
+              <HistoricCard key={idx} yearData={yearData} />
+            ))}
           </div>
         </div>
       </section>
@@ -383,13 +383,13 @@ export default function App() {
             <h2 className="text-4xl font-black uppercase tracking-tighter text-white">Momentos <span className="text-[#ECB7CB]">Inolvidables</span></h2>
             <Camera className="w-8 h-8 text-[#ECB7CB]" />
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             {GALERIA.map((foto, index) => (
               <div key={foto.id} className={`group relative overflow-hidden cursor-pointer ${index === 0 ? 'col-span-2 row-span-2' : ''}`}>
-                <img 
-                  src={foto.url} 
-                  alt={foto.title} 
+                <img
+                  src={foto.url}
+                  alt={foto.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100"
                 />
                 <div className="absolute inset-0 bg-[#0E0E0E]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -405,7 +405,7 @@ export default function App() {
       <section id="palmares" className="py-24 bg-[#0E0E0E] relative">
         <div className="container mx-auto px-6">
           <SectionTitle icon={Trophy}>Nuestras Conquistas</SectionTitle>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
             {PALMARES.map((trophy, index) => (
               <div key={trophy.id} className="relative group">
@@ -431,7 +431,7 @@ export default function App() {
       <section id="contacto" className="py-24 bg-[#0E0E0E]">
         <div className="container mx-auto px-6">
           <SectionTitle icon={Mail}>Desafíanos</SectionTitle>
-          
+
           <div className="grid md:grid-cols-2 gap-16">
             <div className="bg-[#1A1A1A] p-10 shadow-2xl border-t-8 border-[#ECB7CB]">
               <h3 className="text-2xl font-black mb-8 uppercase tracking-wide text-white">Agenda un Amistoso</h3>
